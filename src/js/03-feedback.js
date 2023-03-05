@@ -16,9 +16,16 @@ function onFormInput() {
 function onFormSubmit(event) {
   event.preventDefault();
 
+  const inputEl = elements.input.value.trim();
+  const textareaEl = elements.textarea.value.trim();
+
+  if (inputEl === '' || textareaEl === '') {
+    alert('Please, fill in the form');
+    return;
+  }
   console.log({
-    email: elements.input.value,
-    message: elements.textarea.value,
+    email: inputEl,
+    message: textareaEl,
   });
   event.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
